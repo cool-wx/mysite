@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="text-center">
+    <h1>{{ article.title }}</h1>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-md-8">
+        <p class="text-center"><span>作者: {{ article.author.username }}</span><span style="margin-left:50px;">{{ publish }}</span></p>
+        <div>{{ article.body }}</div>
+    </div>
+</div>
+{% endblock %}

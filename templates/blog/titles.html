@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}
+blog titles
+{% endblock %}
+{% block content %}
+<div class="text-center ">
+    <h1>My Blog</h1>
+</div>
+<div class="row">
+    <ul>
+        {% for blog in blogs %}
+
+        <div class="row">
+            <div class="col">
+                <li><a href="http://{{ request.get_host }}/blog/{{ blog.id }}">{{ blog.title }}</a></li>
+            </div>
+
+        </div>
+        <br>
+        {% endfor %}
+    </ul>
+</div>
+</div>
+{% endblock %}
