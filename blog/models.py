@@ -12,6 +12,7 @@ class BlogArticles(models.Model):
 
     class Meta:
         ordering = ('-publish',)
+        verbose_name = verbose_name_plural = "文章"
 
         def __str__(self):
             content = ""

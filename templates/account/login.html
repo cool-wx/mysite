@@ -6,7 +6,7 @@ Login2
 
 {% block content %}
 <div class="row text-center vertical-middle-sm">
-    <h1>内置登陆</h1>
+    <h2 style="color:gray">用户登陆</h2>
     {% if form.errors %}
     <p style="color:red;">输入的用户名或密码错误,请重试</p>
     {% endif %}
@@ -26,6 +26,9 @@ Login2
             </label>
             <div class="col-md-6 text-left">{{ form.password }}</div>
         </div>
+        <br>
+        <p>没有帐号?请<a href="{% url 'account:user_register' %}">注册</a></p>
+        <br>
         <input type="submit" class="btn btn-primary btn-lg" value="登&nbsp;陆">
     </form>
 </div>
