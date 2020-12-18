@@ -116,3 +116,5 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')  # 通过和项目根路径拼接得到static的路径
 ]
+
+LOGIN_REDIRECT_URL = '/title/'
