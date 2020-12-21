@@ -120,3 +120,13 @@ STATICFILES_DIRS = [
 
 LOGIN_REDIRECT_URL = '/title/'
 LOGIN_URL = '/account/login/'
+
+
+EMAIL_HOST = 'smtp.qq.com'
+EMAIL_HOST_USER = 'coolboy_wx@foxmail.com'
+EMAIL_HOST_PASSWORD = 'qepwqgpyudVB1'
+EMAIL_PORT = 465
+EMAIL_USE_TLS = True
+DEFAULT_FROM_MAIL = 'coolboy_wx@foxmail.com'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

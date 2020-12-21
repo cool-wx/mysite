@@ -26,4 +26,10 @@ class RegistrationForm(forms.ModelForm):
 class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
-        fields = ('phone', 'birth')
+        fields = ('phone', 'birth', 'aboutme')
+
+
+class UserForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ('email',)

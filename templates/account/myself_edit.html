@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title %}
+修改信息
+{% endblock %}
+
+{% block content %}
+<div class="row text-center vertical-middle-sm">
+    <h2>编辑我的信息</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <form class="form-horizontal" method="post">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-4 text-right">
+                        <span>用户名:</span>
+                    </div>
+                    <div class="col-md-8 text-left">
+                        {{ user.username }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 text-right">
+                        <span>邮箱:</span>
+                    </div>
+                    <div class="col-md-8 text-left">
+                        {{ user_form.email }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 text-right">
+                        <span>生日:</span>
+                    </div>
+                    <div class="col-md-8 text-left">
+                        {{ userprofile_form.birth }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 text-right">
+                        <span>电话:</span>
+                    </div>
+                    <div class="col-md-8 text-left">
+                        {{ userprofile_form.phone }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 text-right">
+                        <span>关于我:</span>
+                    </div>
+                    <div class="col-md-8 text-left">
+                        {{ userprofile_form.aboutme }}
+                    </div>
+                </div>
+                <div cla="row">
+                    <input type="submit" class="btn btn-primary btn-lg " value="提交">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
