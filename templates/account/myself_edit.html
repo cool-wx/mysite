@@ -1,6 +1,11 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}
 修改信息
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'imgcrop/css/style.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -55,6 +60,20 @@
                 </div>
             </form>
         </div>
+        <div class="col-md-6">
+            <div style="margin-right:100px">
+                <img src="{% static 'images/newton.jpg' %}" name="user_face" class="img-circle" width="270px"
+                     id="my_photo">
+            </div>
+            <div style="margin-right:100px">
+                <button class="btn btn-primary btn-lg" id="upload_image" onclick="upload_image_layer()">更改头像</button>
+            </div>
+        </div>
     </div>
 </div>
+{% endblock %}
+
+{% block javascript %}
+<script src="{% static 'imgcrop/js/jquery-1.11.1.min.js' %}"></script>
+<script src="{% static 'imgcrop/js/cropbox-min.js' %}"></script>
 {% endblock %}

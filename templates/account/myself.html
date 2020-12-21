@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}
 我的个人信息
 {% endblock %}
@@ -51,6 +52,11 @@
             <a href="{% url 'account:myself_edit' %}">
                 <button class="btn btn-primary btn-lg">编辑个人信息</button>
             </a>
+        </div>
+        <div class="col-md-6">
+            <div style="margin-right:100px">
+                <img src="{% static 'images/newton.jpg' %}" name="user_face" class="img-circle" width="270px" id="my_photo">
+            </div>
         </div>
     </div>
 </div>
