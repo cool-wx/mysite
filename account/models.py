@@ -8,6 +8,7 @@ class UserProfile(models.Model):
     birth = models.DateField(blank=True, null=True, verbose_name='出生日期')
     phone = models.CharField(max_length=20, null=True, verbose_name='电话号码')
     aboutme = models.TextField(blank=True)
+    facename = models.CharField(max_length=128, null=True, verbose_name='头像图片名称')
 
     class Meta:
         verbose_name = verbose_name_plural = "用户扩展信息"

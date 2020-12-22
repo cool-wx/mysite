@@ -66,7 +66,8 @@
                      id="my_photo">
             </div>
             <div style="margin-right:100px">
-                <button class="btn btn-primary btn-lg" id="upload_image" onclick="upload_image_layer()">更改头像</button>
+<!--                <button class="btn btn-primary btn-lg" id="upload_image" onclick="                                                                                                          ()">更改头像</button>-->
+                <button class="btn btn-primary btn-lg" id="upload_image" onclick="upload_image1()">更改头像</button>
             </div>
         </div>
     </div>
@@ -74,6 +75,11 @@
 {% endblock %}
 
 {% block javascript %}
-<script src="{% static 'imgcrop/js/jquery-1.11.1.min.js' %}"></script>
-<script src="{% static 'imgcrop/js/cropbox-min.js' %}"></script>
+<script>
+    upload_image1 = function(){
+        window.open("{% url 'account:myimage' %}", "newwindow", "height=500, width=450, toolbar =no, menubar=no, scrollbars=no, resizable=no, location=no, status=no");
+    }
+</script>
+<!--<script src="{% static 'imgcrop/js/jquery-1.11.1.min.js' %}"></script>-->
+<!--<script src="{% static 'imgcrop/js/cropbox-min.js' %}"></script>-->
 {% endblock %}

@@ -1,9 +1,14 @@
+import base64
+import os
+
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login
 from account.forms import LoginForm, RegistrationForm, UserProfileForm, UserForm
 from account.models import UserProfile
+from mysite.settings import STATICFILES_DIRS
+import uuid
 
 
 def user_login(request):
@@ -81,3 +86,32 @@ def myself_edit(request):
             "user_form": user_form,
             "userprofile_form": userprofile_form
         })
+
+
+@login_required(login_url='/account/login/')
+def my_image(request):
+    if request.method == 'POST':
+        img = request.POST['img']
+        userprofile = UserProfile.objects.get(user=request.user.id)
+        filename = str(uuid.uuid1()) + '.png'
+        filepath = os.path.join(STATICFILES_DIRS[0], 'faces/%s' % filename)
+        with open(filepath, 'wb') as fp:
+            fp.write(base64.b64decode(D_BASE64(img)))
+        userprofile.facename = filename
+        userprofile.save()
+        return HttpResponseRedirect(request, '/account/myself_edit/', {"facename": filename})
+    else:
+        return render(request, 'account/imagecrop.html')
+
+
+def D_BASE64(origStr):
+    # base64 decode should meet the padding rules
+    if (len(origStr) % 3 == 1):
+        origStr += "=="
+    elif (len(origStr) % 3 == 2):
+        origStr += "="
+
+    origStr = bytes(origStr, encoding='utf8')
+    dStr = base64.b64decode(origStr).decode()
+    print("BASE64 Decode result is: \n" + dStr)
+    return dStr
